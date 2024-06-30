@@ -29,6 +29,7 @@ const whenExternalScripts = (items = []) =>
     : [];
 
 export default defineConfig({
+  site: "https://www.hiailabs.com",
   output: "static",
 
   integrations: [
