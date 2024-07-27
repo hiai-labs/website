@@ -1,5 +1,5 @@
 site:
-  name: HiAi
+  name: HIAI
   site: "https://www.hiailabs.com/"
   base: "/"
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: HiAi
-    template: "%s — HiAi"
+    default: HIAI
+    template: "%s — HIAI"
   description: "The AI Research Marketplace"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: HiAi
+    site_name: HIAI
     images:
       - url: "~/assets/images/default.png"
         width: 1200

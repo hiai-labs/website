@@ -1,0 +1,49 @@
+---
+import Layout from "~/layouts/LandingLayout.astro";
+
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Features from "~/components/widgets/Features.astro";
+import Hero from "~/components/widgets/Hero.astro";
+
+const metadata = {
+  title: "Lead Generation Landing Page Demo",
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero    
+    subtitle="A decentralized platform to collect human intelligence for artificial intelligence."
+    image={{
+      src: "~/assets/images/human.jpg",
+      alt: "",
+    }}
+  >
+    <Fragment slot="title">
+      <span class="tracking-wide">HIAI</span>
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="features"
+    items={[
+      {
+        title: "Complete data annotation quests",
+        icon: "tabler:flag",
+      },
+      {
+        title: "Earn crypto from successful quests",
+        icon: "tabler:wallet",
+      },
+      {
+        title: "Level up and unlock more quests",
+        icon: "tabler:lock-open",
+      },
+      {
+        title: "Contribute data to AI missions",
+        icon: "tabler:rocket",
+      },
+    ]}
+  />
+</Layout>
