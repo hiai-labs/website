@@ -120,7 +120,7 @@ export const headerData = {
   ],
   actions: [
     {
-      text: "Download",
+      text: "Launch App",
       href: "https://github.com/onwidget/astrowind",
       target: "_blank",
     },
