@@ -51,6 +51,7 @@
     "globals": "^15.6.0",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
+    "pagecrypt": "^6.1.1",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
     "reading-time": "^1.5.0",

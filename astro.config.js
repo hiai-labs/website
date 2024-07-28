@@ -10,6 +10,7 @@ import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import compress from "astro-compress";
 
+import pageCryptIntegration from "./integrations/astro-pagecrypt-integration.js";
 import astrowind from "./vendor/integration";
 
 import {
@@ -77,6 +78,8 @@ export default defineConfig({
     astrowind({
       config: "./src/config.yaml",
     }),
+
+    pageCryptIntegration(),
   ],
 
   image: {
