@@ -11,14 +11,14 @@ metadata:
   title:
     default: HIAI
     template: "%s — HIAI"
-  description: "The AI Research Marketplace"
+  description: "Empowering Human Intelligence to Train, Evaluate and Harness Artificial Intelligence."
   robots:
     index: true
     follow: true
   openGraph:
     site_name: HIAI
     images:
-      - url: "~/assets/images/default.png"
+      - url: "~/assets/images/open-graph.png"
         width: 1200
         height: 628
     type: website

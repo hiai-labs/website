@@ -80,8 +80,8 @@ export default defineConfig({
     astrowind({
       config: "./src/config.yaml",
     }),
-
-    pageCryptIntegration(),
+    // temporarily disable pageCryptIntegration in order to test open graph 
+    // pageCryptIntegration(),
   ],
 
   image: {
