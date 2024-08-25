@@ -3,6 +3,10 @@ import { getPermalink, getBlogPermalink, getAsset } from "./utils/permalinks";
 export const headerData = {
   links: [
     {
+      text: "Home",
+      href: "/",
+    },
+    {
       text: "Products",
       links: [
         {
@@ -10,17 +14,17 @@ export const headerData = {
           href: getPermalink("/products/data-engine"),
         },
         {
-          text: "AI Platform",
-          // href: getPermalink("/homes/startup"),
+          text: "AI Platform (Coming Soon)",
+          href: getPermalink("/products/ai-platform"),
         },
         {
-          text: "Social Forum",
+          text: "Social Forum (Coming Soon)",
           // href: getPermalink("/homes/mobile-app"),
         },
       ],
     },
     {
-      text: "Roles",
+      text: "Ecosystem",
       links: [
         {
           text: "Data Annotator",
@@ -31,11 +35,11 @@ export const headerData = {
           // href: getPermalink("/services"),
         },
         {
-          text: "AI User (Individual)",
+          text: "AI User (Personal)",
           // href: getPermalink("/pricing"),
         },
         {
-          text: "AI User (Enterprise)",
+          text: "AI User (Business)",
           // href: getPermalink("/about"),
         },
         // {
@@ -60,32 +64,42 @@ export const headerData = {
           // href: getPermalink("/example/landing/lead-generation"),
         },
         {
-          text: "Team",
-          // href: getPermalink("/example/landing/sales"),
-        },
-        {
-          text: "Career",
+          text: "Events",
           // href: getPermalink("/example/landing/click-through"),
         },
         {
-          text: "Events",
+          text: "Career",
           // href: getPermalink("/example/landing/product"),
         },
       ],
     },
     {
-      text: "Blog",
-      href: "#",
+      text: "Resources",
+      links: [
+        {
+          text: "Blog",
+          // href: getPermalink("/example/landing/sales"),
+        },
+        {
+          text: "Documentation",
+          // href: getPermalink("/example/landing/product"),
+        },
+      ],
     },
+    // {
+    //   text: "Blog",
+    //   href: "#",
+    // },
     // {
     //   text: "Widgets",
     //   href: "#",
     // },
   ],
+  showAction: false,
   actions: [
     {
-      text: "Launch Data Engine",
-      href: "https://github.com/onwidget/astrowind",
+      text: "Launch App",
+      // href: "https://github.com/onwidget/astrowind",
       target: "_blank",
     },
   ],
