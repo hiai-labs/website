@@ -1,0 +1,258 @@
+---
+import Layout from "../../layouts/PageLayout.astro";
+
+import Hero from "../../components/widgets/Hero.astro";
+import Note from "../../components/widgets/Note.astro";
+import Features from "../../components/widgets/Features.astro";
+import Features2 from "../../components/widgets/Features2.astro";
+import Steps from "../../components/widgets/Steps.astro";
+import Content from "../../components/widgets/Content.astro";
+import BlogLatestPosts from "../../components/widgets/BlogLatestPosts.astro";
+import FAQs from "../../components/widgets/FAQs.astro";
+import Stats from "../../components/widgets/Stats.astro";
+import CallToAction from "../../components/widgets/CallToAction.astro";
+
+const metadata = {
+  title: "HiAI",
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    image={{
+      src: "~/assets/images/data-engine.jpeg",
+      alt: "AstroWind Hero Image",
+    }}
+  >
+    <Fragment slot="title"> Data Engine</Fragment>
+
+    <Fragment slot="subtitle">
+      Annotate Data to Fuel AI Development and Earn Rewards through a
+      Transparent Mechanism.
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <!-- <Note /> -->
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline=""
+    title="What you will do as a Data Annotator"
+    subtitle=""
+    items={[
+      {
+        title: "Take on Quests",
+        description:
+          "Take on quests like annotating data for AI training, evaluating AI responses, ensuring AI safety, and more.",
+        icon: "tabler:zoom-question",
+      },
+      {
+        title: "Earn Rewards",
+        description:
+          "Receive NFTs and cryptocurrency for completing quests successfully.",
+        icon: "tabler:wallet",
+      },
+      {
+        title: "Level Up",
+        description:
+          "Advance through levels and unlock more challenging and rewarding quests.",
+        icon: "tabler:escalator-up",
+      },
+      {
+        title: "Influence AI ",
+        description:
+          "Make a direct impact on AI development, promoting responsible AI and ensuring AI safety.",
+        icon: "tabler:robot",
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline=""
+    title=""
+    subtitle=""
+    items={[
+      {
+        title: "Label Data",
+        description:
+          "Provides accurate and relevant labels for raw data, which are essential for training AI models to make precise predictions.",
+      },
+      {
+        title: "Curate Data",
+        description:
+          "Transforms raw data into structured, labeled datasets, facilitating effective training and evaluation of machine learning algorithms.",
+      },
+      // {
+      //   title: "Curate Data",
+      //   description:
+      //     "Ensures high-quality, well-organized data, improving the performance and reliability of AI systems in real-world applications.",
+      // },
+    ]}
+    image={{
+      src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "Colorful Image",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Train AI
+      </h3>
+      Training data powers AI like premium gasoline powers an engine. Just as crude
+      oil needs refining, raw data requires careful data labeling, annotation, and
+      curation. This process is crucial for effective AI training, ensuring models
+      achieve both accuracy and reliability.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: "Rate AI Output",
+        description:
+          "Use thumbs up or down to offer direct feedback, which aids in refining AI behavior and enhancing output quality.",
+      },
+      {
+        title: "Vote for Excellence",
+        description:
+          "Choose the most effective response from multiple AI-generated options to guide model enhancements and ensure peak performance. Your selection helps fine-tune the AI's output, driving continuous improvement and delivering higher-quality results.",
+      },
+      {
+        title: "Provide Feedback",
+        description:
+          "Review and assess language model responses to measure their precision and reliability, pinpointing areas for enhancement.",
+      },
+    ]}
+    image={{
+      src: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80",
+      alt: "Blueprint Image",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Evaluate AI
+      </h3>
+      Evaluating AI is like running tests for fine-tuning high-performance engines.
+      It's intricate and demands precision. For advanced generative AI models, this
+      means rigorously assessing performance to ensure accuracy and reliability across
+      various scenarios.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: "Identify AI vs. Human Content",
+        description:
+          "Differentiate between AI-generated and human-generated content to enhance transparency and understanding.",
+      },
+      {
+        title: "Assess Harmfulness",
+        description:
+          "Evaluate content for potential risks and provide feedback to ensure AI practices are safer and more responsible.",
+      },
+      {
+        title: "Shape AI's Future",
+        description:
+          "Share your insights and preferences to influence the development of AI technologies, helping to align them with human values and needs.",
+      },
+    ]}
+    image={{
+      src: "https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "Astronauts Image",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Harness AI
+      </h3>
+      Harnessing AI is like steering and safeguarding the vehicle. It's about guiding
+      the technology to ensure it serves humanity effectively and safely. Ultimately,
+      AI should be here to benefit human beings.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    tagline=""
+    title="Uses Cases Supported by Data Engine"
+    subtitle="High-quality, large-scale, and diverse datasets powered by data annotators from a global and engaging community."
+    items={[
+      {
+        title: "Computer Vision",
+        description:
+          "Gather and label image datasets for image classification, object detection, and image segmentation.",
+        icon: "flat-color-icons:gallery",
+      },
+      {
+        title: "Natural Language Processing",
+        description:
+          "Collect and annotate text data for tasks such as sentiment analysis, language translation, and text generation.",
+        icon: "flat-color-icons:document",
+      },
+      {
+        title: "Foundation Models",
+        description:
+          "Utilize Reinforcement Learning from Human Feedback (RLHF) for model development, evaluation, safety, and alignment.",
+        icon: "flat-color-icons:conference-call",
+      },
+      {
+        title: "E-Commerce",
+        description:
+          "Annotate data for recommendation systems, receipt transcription, and more.",
+        icon: "flat-color-icons:template",
+      },
+      {
+        title: "Speech Recognition",
+        description:
+          "Compile and annotate audio datasets for accurate speech-to-text and voice command applications.",
+        icon: "flat-color-icons:advertising",
+      },
+      {
+        title: "Autonomous Driving",
+        description:
+          "Collect bounding boxes to identify the position of cars, pedestrians, traffic lights in your data for training self-driving algorithms.",
+        icon: "flat-color-icons:shipped",
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2></Layout
+>
