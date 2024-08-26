@@ -14,11 +14,11 @@ export const headerData = {
           href: getPermalink("/products/data-engine"),
         },
         {
-          text: "AI Platform (Coming Soon)",
+          text: "AI Platform",
           href: getPermalink("/products/ai-platform"),
         },
         {
-          text: "Social Forum (Coming Soon)",
+          text: "Agora",
           // href: getPermalink("/homes/mobile-app"),
         },
       ],

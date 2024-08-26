@@ -2,19 +2,16 @@
 import Layout from "../../layouts/PageLayout.astro";
 
 import Hero from "../../components/widgets/Hero.astro";
+import Features from "../../components/widgets/Features.astro";
+import Content from "../../components/widgets/Content.astro";
+import Features2 from "../../components/widgets/Features2.astro";
+import Steps from "../../components/widgets/Steps.astro";
+import FAQs from "../../components/widgets/FAQs.astro";
 import CallToAction from "../../components/widgets/CallToAction.astro";
 
-import Features2 from "../../components/widgets/Features2.astro";
-import Features from "../../components/widgets/Features.astro";
-import Stats from "../../components/widgets/Stats.astro";
-import Features3 from "../../components/widgets/Features3.astro";
-import FAQs from "../../components/widgets/FAQs.astro";
-import Brands from "../../components/widgets/Brands.astro";
-
-import { YouTube } from "astro-embed";
-
 const metadata = {
-  title: "Startup Landing Page",
+  title: "HiAI Platform",
+  ignoreTitleTemplate: true,
 };
 ---
 
@@ -22,7 +19,161 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="WIP"
+    image={{
+      src: "~/assets/images/ai-platform.jpeg",
+      alt: "HiAI Platform Hero Image",
+    }}
   >
+    <Fragment slot="title"> AI Platform</Fragment>
 
+    <Fragment slot="subtitle">
+      Build AI Systems with Cutting-Edge Infrastructure and Monetize AI Assets through a Decentralized Marketplace.
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline=""
+    title="What you can do as an AI Developer"
+    subtitle=""
+    items={[
+      {
+        title: "Drag-and-Drop Interface",
+        description:
+          "Easily create AI models without writing a single line of code. Customize and fine-tune models with intuitive tools.",
+        icon: "tabler:device-laptop",
+      },
+      {
+        title: "Pre-built Components",
+        description:
+          "Utilize a library of pre-built AI components, from image recognition to natural language processing, to accelerate your development process.",
+        icon: "tabler:components",
+      },
+      {
+        title: "Collaborate and Share",
+        description:
+          "Work with a community of developers, share your AI models, and collaborate on AI projects to push the boundaries of innovation.",
+        icon: "tabler:share",
+      },
+      {
+        title: "Deploy with Ease",
+        description:
+          "Deploy your AI models seamlessly into production environments, scaling as needed to meet demand.",
+        icon: "tabler:cloud-upload",
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline=""
+    title=""
+    subtitle=""
+    items={[
+      {
+        title: "Build AI Systems",
+        description:
+          "Design and develop AI systems tailored to your specific needs using a simple drag-and-drop interface. From creating prototypes to deploying production models, our platform supports the entire AI development lifecycle.",
+      },
+      {
+        title: "Optimize Performance",
+        description:
+          "Continuously monitor and optimize your AI models' performance using built-in analytics tools, ensuring they deliver the best results.",
+      },
+    ]}
+    image={{
+      src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "AI Development Image",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Build AI
+      </h3>
+      Building AI has never been easier. With our no-code platform, you can quickly assemble AI models, customize them to your needs, and bring innovative solutions to life.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: "Use AI Systems",
+        description:
+          "Access and use AI systems created by developers on the platform. Whether you need AI for image recognition, natural language processing, or custom solutions, our platform provides the tools you need to succeed.",
+      },
+      {
+        title: "Collaborate Across Teams",
+        description:
+          "Collaborate with other AI users and developers to refine and expand the capabilities of AI systems, driving continuous improvement and innovation.",
+      },
+    ]}
+    image={{
+      src: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      alt: "AI Systems Image",
+    }}
+  >
+    <Fragment slot="content">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Use AI
+      </h3>
+      Our platform not only empowers developers to build AI systems but also enables users to leverage these systems for real-world applications. It's AI made accessible for everyone.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    tagline=""
+    title="How the Platform Supports You"
+    subtitle="with robust tools, extensive resources, and a vibrant community to ensure your success in AI development and deployment."
+    items={[
+      {
+        title: "Seamless Integration",
+        description:
+          "Easily integrate AI models into your existing workflows and systems, ensuring smooth transitions and minimal disruptions.",
+        icon: "tabler:api",
+      },
+      {
+        title: "Extensive Documentation",
+        description:
+          "Access comprehensive guides, tutorials, and API documentation to help you get the most out of the platform.",
+        icon: "tabler:book",
+      },
+      {
+        title: "Community Support",
+        description:
+          "Join a thriving community of developers and AI enthusiasts who are ready to help and collaborate on AI projects.",
+        icon: "tabler:users",
+      },
+      {
+        title: "Continuous Updates",
+        description:
+          "Stay ahead with regular updates and new features that keep the platform at the cutting edge of AI technology.",
+        icon: "tabler:refresh",
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 </Layout>
