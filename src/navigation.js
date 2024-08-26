@@ -18,7 +18,7 @@ export const headerData = {
           href: getPermalink("/products/ai-platform"),
         },
         {
-          text: "Agora",
+          text: "Agora (Coming Soon)",
           // href: getPermalink("/homes/mobile-app"),
         },
       ],
