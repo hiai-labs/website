@@ -11,12 +11,14 @@ import BlogLatestPosts from "~/components/widgets/BlogLatestPosts.astro";
 import FAQs from "~/components/widgets/FAQs.astro";
 import Stats from "~/components/widgets/Stats.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
+import DynamicSubtitle from "~/dynamics/DynamicSubtitle.astro"; // Import the dynamic subtitle function
 
 const metadata = {
   title: "HiAI",
   ignoreTitleTemplate: true,
 };
 ---
+
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
@@ -30,9 +32,12 @@ const metadata = {
     <Fragment slot="title"> HiAI </Fragment>
 
     <Fragment slot="subtitle">
-      The Decentralized Platform where Humans Contribute, Develop, Monetize and
-      Harness AI in an Open Economy.
+      The Decentralized Platform where Humans <DynamicSubtitle /> AI in an Open Economy. 
     </Fragment>
+
+
+    <!-- Inject the onLoad script -->
+
   </Hero>
 
   <!-- Note Widget ******************* -->

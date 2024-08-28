@@ -1,0 +1,50 @@
+---
+// src/components/DynamicSubtitle.astro
+---
+
+<span id="dynamic-subtitle"></span>
+
+<script is:inline>
+  const subtitles = ["Fuel", "Develop", "Monetize", "Harness"];
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function updateSubtitle() {
+    const subtitleElement = document.getElementById("dynamic-subtitle");
+    if (!subtitleElement) return;
+
+    // Get the current word
+    const currentWord = subtitles[index];
+
+    // Update the text content with styling
+    if (isDeleting) {
+      subtitleElement.innerHTML = `<span style="color: #FF5733; font-weight: bold;">${currentWord.substring(0, charIndex - 1)}</span>`;
+      charIndex--;
+    } else {
+      subtitleElement.innerHTML = `<span style="color: #FF5733; font-weight: bold;">${currentWord.substring(0, charIndex + 1)}</span>`;
+      charIndex++;
+    }
+
+    // If the word is fully typed out
+    if (!isDeleting && charIndex === currentWord.length) {
+      // Start deleting after a short pause
+      setTimeout(() => {
+        isDeleting = true;
+      }, 1000);
+    }
+
+    // If the word is fully deleted
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      index = (index + 1) % subtitles.length;
+    }
+
+    // Adjust typing speed
+    const speed = isDeleting ? 50 : 150;
+    setTimeout(updateSubtitle, speed);
+  }
+
+  // Start the typing effect
+  updateSubtitle();
+</script>

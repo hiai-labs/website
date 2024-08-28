@@ -8,7 +8,7 @@ import type { Hero as Props } from "~/types";
 const {
   title = await Astro.slots.render("title"),
   subtitle = await Astro.slots.render("subtitle"),
-  tagline,
+  tagline = await Astro.slots.render("tagline"),
 
   content = await Astro.slots.render("content"),
   actions = await Astro.slots.render("actions"),
