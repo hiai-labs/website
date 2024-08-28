@@ -1,7 +1,3 @@
----
-// src/components/DynamicSubtitle.astro
----
-
 <span id="dynamic-subtitle"></span>
 
 <script is:inline>
@@ -9,12 +5,12 @@
   let index = 0;
   let charIndex = 0;
   let isDeleting = false;
+  let intervalId;
 
   function updateSubtitle() {
     const subtitleElement = document.getElementById("dynamic-subtitle");
     if (!subtitleElement) return;
 
-    // Get the current word
     const currentWord = subtitles[index];
 
     // Update the text content with styling
@@ -28,10 +24,9 @@
 
     // If the word is fully typed out
     if (!isDeleting && charIndex === currentWord.length) {
-      // Start deleting after a short pause
       setTimeout(() => {
         isDeleting = true;
-      }, 1000);
+      }, 1000); // Short pause before starting deletion
     }
 
     // If the word is fully deleted
@@ -40,11 +35,31 @@
       index = (index + 1) % subtitles.length;
     }
 
-    // Adjust typing speed
+    // Adjust typing speed (faster for deletion)
     const speed = isDeleting ? 50 : 150;
-    setTimeout(updateSubtitle, speed);
+    intervalId = setTimeout(updateSubtitle, speed);
   }
 
-  // Start the typing effect
-  updateSubtitle();
+  function initializeSubtitle() {
+    // Clear any previous intervals to avoid overlapping
+    clearTimeout(intervalId);
+
+    index = 0;
+    charIndex = 0;
+    isDeleting = false;
+    updateSubtitle(); // Start the typing effect
+  }
+
+  // Start the typing effect on initial load
+  initializeSubtitle();
+
+  // Reinitialize the subtitle effect after Astro page swap
+  document.addEventListener("astro:after-swap", initializeSubtitle);
+
+  // Optionally reinitialize the subtitle effect when the page becomes visible again
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      initializeSubtitle();
+    }
+  });
 </script>
