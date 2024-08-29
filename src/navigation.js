@@ -23,77 +23,77 @@ export const headerData = {
         },
       ],
     },
+    // {
+    //   text: "Ecosystem",
+    //   links: [
+    //     {
+    //       text: "Data Annotator",
+    //       // href: getPermalink("/#features"),
+    //     },
+    //     {
+    //       text: "AI Developer",
+    //       // href: getPermalink("/services"),
+    //     },
+    //     {
+    //       text: "AI User (Personal)",
+    //       // href: getPermalink("/pricing"),
+    //     },
+    //     {
+    //       text: "AI User (Business)",
+    //       // href: getPermalink("/about"),
+    //     },
+    //     // {
+    //     //   text: "Contact",
+    //     //   href: getPermalink("/contact"),
+    //     // },
+    //     // {
+    //     //   text: "Terms",
+    //     //   href: getPermalink("/terms"),
+    //     // },
+    //     // {
+    //     //   text: "Privacy policy",
+    //     //   href: getPermalink("/privacy"),
+    //     // },
+    //   ],
+    // },
+    // {
+    //   text: "Community",
+    //   links: [
+    //     {
+    //       text: "Social",
+    //       // href: getPermalink("/example/landing/lead-generation"),
+    //     },
+    //     {
+    //       text: "Events",
+    //       // href: getPermalink("/example/landing/click-through"),
+    //     },
+    //     {
+    //       text: "Career",
+    //       // href: getPermalink("/example/landing/product"),
+    //     },
+    //   ],
+    // },
+    // {
+    //   text: "Resources",
+    //   links: [
+    //     {
+    //       text: "Blog",
+    //       // href: getPermalink("/example/landing/sales"),
+    //     },
+    //     {
+    //       text: "Documentation",
+    //       // href: getPermalink("/example/landing/product"),
+    //     },
+    //   ],
+    // },
     {
       text: "Ecosystem",
-      links: [
-        {
-          text: "Data Annotator",
-          // href: getPermalink("/#features"),
-        },
-        {
-          text: "AI Developer",
-          // href: getPermalink("/services"),
-        },
-        {
-          text: "AI User (Personal)",
-          // href: getPermalink("/pricing"),
-        },
-        {
-          text: "AI User (Business)",
-          // href: getPermalink("/about"),
-        },
-        // {
-        //   text: "Contact",
-        //   href: getPermalink("/contact"),
-        // },
-        // {
-        //   text: "Terms",
-        //   href: getPermalink("/terms"),
-        // },
-        // {
-        //   text: "Privacy policy",
-        //   href: getPermalink("/privacy"),
-        // },
-      ],
-    },
-    {
-      text: "Community",
-      links: [
-        {
-          text: "Social",
-          // href: getPermalink("/example/landing/lead-generation"),
-        },
-        {
-          text: "Events",
-          // href: getPermalink("/example/landing/click-through"),
-        },
-        {
-          text: "Career",
-          // href: getPermalink("/example/landing/product"),
-        },
-      ],
+      href: "#",
     },
     {
       text: "Resources",
-      links: [
-        {
-          text: "Blog",
-          // href: getPermalink("/example/landing/sales"),
-        },
-        {
-          text: "Documentation",
-          // href: getPermalink("/example/landing/product"),
-        },
-      ],
+      href: "#",
     },
-    // {
-    //   text: "Blog",
-    //   href: "#",
-    // },
-    // {
-    //   text: "Widgets",
-    //   href: "#",
-    // },
   ],
   showAction: false,
   actions: [
