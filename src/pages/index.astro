@@ -12,6 +12,8 @@ import FAQs from "~/components/widgets/FAQs.astro";
 import Stats from "~/components/widgets/Stats.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
 import DynamicSubtitle from "~/dynamics/DynamicSubtitle.astro"; // Import the dynamic subtitle function
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
 
 const metadata = {
   title: "HiAI",
@@ -43,4 +45,36 @@ const metadata = {
   <!-- <Note /> -->
 
   <!-- Features Widget *************** -->
+  <Features2
+    title="AI of the Humans, by the Humans, for the Humans."
+    tagline="Our Vision"
+    subtitle="Human intelligence is vital at every stage of AI development—from data annotation and model training to model evaluation and AI safety. AI development should be shaped and guided by human intelligence to better understand and benefit humans. <br><br>The ability to contribute to AI development and reap its benefits, both technological and economic, should be accessible to everyone. We aim to build a transparent and fair AI landscape, where participation in AI development is open to all, and financial rewards are equitably distributed to everyone." 
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+<CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Launch App',
+        href: '',
+        target: '_blank',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Join Our Mission
+    </Fragment>
+
+    <Fragment slot="subtitle"> 
+      to Fuel, Develop, Monetize and Harness 
+      AI in an Open Economy.  
+    </Fragment>
+  </CallToAction>
+
+
 </Layout>

@@ -36,14 +36,6 @@ const {
               {title && (
                 <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>
               )}
-              {testimonial && (
-                <blockquote class="flex-auto">
-                  <p class="text-muted">" {testimonial} "</p>
-                </blockquote>
-              )}
-
-              <hr class="border-slate-200 dark:border-slate-600 my-4" />
-
               <div class="flex items-center">
                 {image && (
                   <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
@@ -67,6 +59,17 @@ const {
                   {job && <p class="text-xs text-muted">{job}</p>}
                 </div>
               </div>
+              <hr class="border-slate-200 dark:border-slate-600 my-4" />
+
+              {testimonial && (
+                <blockquote class="flex-auto">
+                  <p class="text-muted">{testimonial}</p>
+                </blockquote>
+              )}
+
+              
+
+              
             </div>
           </div>
         ))
