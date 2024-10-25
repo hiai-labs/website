@@ -13,6 +13,16 @@ import Stats from "~/components/widgets/Stats.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
 import DynamicSubtitle from "~/dynamics/DynamicSubtitle.astro"; // Import the dynamic subtitle function
 import Testimonials from "~/components/widgets/Testimonials.astro";
+import Brands from "~/components/widgets/Brands.astro";
+import Button from "~/components/ui/Button.astro";
+import Image from "~/components/common/Image.astro";
+import Features3 from "~/components/widgets/Features3.astro";
+
+const aptosFoundationLink = "https://aptosfoundation.org/";
+const aptosImageLink = "~/assets/images/index_aptos.png";
+
+const gcpWeb3Link = "https://cloud.google.com/startup/web3?hl=en";
+const gcpImageLink = "~/assets/images/index_gcp.png";
 
 const metadata = {
   title: "HiAI Labs",
@@ -32,7 +42,8 @@ const metadata = {
     <Fragment slot="title"> HiAI </Fragment>
 
     <Fragment slot="subtitle">
-      The Decentralized Platform where<br>Humans <DynamicSubtitle />&nbsp;AI<br>in an Open Economy.
+      The Decentralized Platform where<br />Humans <DynamicSubtitle
+      />&nbsp;AI<br />in an Open Economy.
     </Fragment>
 
     <!-- Inject the onLoad script -->
@@ -52,6 +63,22 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
+
+  <Brands
+    title="Supported by"
+    subtitle=""
+    icons={[]}
+    images={[
+      {
+        src: aptosImageLink,
+        alt: "Aptos",
+      },
+      {
+        src: gcpImageLink,
+        alt: "Google Cloud",
+      },
+    ]}
+  />
 
   <CallToAction
     actions={[

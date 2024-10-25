@@ -41,14 +41,11 @@ const {
         images.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+              <div class="flex justify-center items-center max-w-[200px] max-h-[200px]">
                 <Image
                   src={image.src}
                   alt={image.alt || ""}
-                  class="max-h-12"
-                  width={120}
-                  height={48}
-                  layout="fixed"
+                  class="object-cover"
                 />
               </div>
             ),
