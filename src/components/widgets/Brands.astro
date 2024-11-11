@@ -39,9 +39,11 @@ const {
     {
       images &&
         images.map(
-          (image) =>
+          (image, index) =>
             image.src && (
-              <div class="flex justify-center items-center max-w-[200px] max-h-[200px]">
+              <div
+                class={`flex justify-center items-center max-w-[200px] ${index === 1 ? "max-w-[250px]" : ""}`}
+              >
                 <Image
                   src={image.src}
                   alt={image.alt || ""}
