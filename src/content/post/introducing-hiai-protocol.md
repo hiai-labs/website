@@ -50,4 +50,6 @@ Our goal is not just to develop artificial intelligence but to build a sustainab
 The future of AI is collaborative, transparent, and, above all, human-centered. At HiAI Labs, we invite you to be a part of this transformative journey. Whether you’re a data annotator, a developer, an advocate, or an individual eager to contribute and thrive in the AI-driven world, there is a place for you in the HiAI ecosystem. Join us, and let’s fuel, develop, and harness AI in a way that benefits everyone!
 
 ## What Comes Next
-Data Engine Beta Testing is coming up on APTOS Testnet! Follow our X, join our discord, and stay tuned!
+Data Engine Beta Testing is coming up on Aptos Testnet. With tremendous support from the Aptos ecosystem, we are proud to build HiAI Protocol on Aptos!
+
+Follow our X, join our discord, and stay tuned!
