@@ -87,12 +87,13 @@ export const headerData = {
     //   ],
     // },
     {
-      text: "Ecosystem",
-      href: "#",
-    },
-    {
       text: "Resources",
-      href: "#",
+      links: [
+        {
+          text: "Blog",
+          href: getPermalink("/blog"),
+        },
+      ],
     },
   ],
   showAction: false,
