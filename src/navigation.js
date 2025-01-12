@@ -23,75 +23,25 @@ export const headerData = {
         },
       ],
     },
-    // {
-    //   text: "Ecosystem",
-    //   links: [
-    //     {
-    //       text: "Data Annotator",
-    //       // href: getPermalink("/#features"),
-    //     },
-    //     {
-    //       text: "AI Developer",
-    //       // href: getPermalink("/services"),
-    //     },
-    //     {
-    //       text: "AI User (Personal)",
-    //       // href: getPermalink("/pricing"),
-    //     },
-    //     {
-    //       text: "AI User (Business)",
-    //       // href: getPermalink("/about"),
-    //     },
-    //     // {
-    //     //   text: "Contact",
-    //     //   href: getPermalink("/contact"),
-    //     // },
-    //     // {
-    //     //   text: "Terms",
-    //     //   href: getPermalink("/terms"),
-    //     // },
-    //     // {
-    //     //   text: "Privacy policy",
-    //     //   href: getPermalink("/privacy"),
-    //     // },
-    //   ],
-    // },
-    // {
-    //   text: "Community",
-    //   links: [
-    //     {
-    //       text: "Social",
-    //       // href: getPermalink("/example/landing/lead-generation"),
-    //     },
-    //     {
-    //       text: "Events",
-    //       // href: getPermalink("/example/landing/click-through"),
-    //     },
-    //     {
-    //       text: "Career",
-    //       // href: getPermalink("/example/landing/product"),
-    //     },
-    //   ],
-    // },
-    // {
-    //   text: "Resources",
-    //   links: [
-    //     {
-    //       text: "Blog",
-    //       // href: getPermalink("/example/landing/sales"),
-    //     },
-    //     {
-    //       text: "Documentation",
-    //       // href: getPermalink("/example/landing/product"),
-    //     },
-    //   ],
-    // },
     {
       text: "Resources",
       links: [
         {
           text: "Blog",
           href: getPermalink("/blog"),
+        },
+      ],
+    },
+    {
+      text: "Community",
+      links: [
+        {
+          text: "Discord",
+          href: "https://discord.gg/GtebUJjS",
+        },
+        {
+          text: "X/Twitter",
+          href: "https://x.com/HiAILabs",
         },
       ],
     },
@@ -162,10 +112,16 @@ export const footerData = {
 
   secondaryLinks: [{ text: "Terms" }, { text: "Privacy Policy" }],
   socialLinks: [
-    { ariaLabel: "X", icon: "tabler:brand-x" },
+    { ariaLabel: "X", icon: "tabler:brand-x", href: "https://x.com/HiAILabs" },
     {
       ariaLabel: "Github",
       icon: "tabler:brand-github",
+      href: "https://github.com/hiai-labs",
+    },
+    {
+      ariaLabel: "Discord",
+      icon: "tabler:brand-discord",
+      href: "https://discord.gg/GtebUJjS",
     },
   ],
 };
