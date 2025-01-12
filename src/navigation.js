@@ -112,16 +112,16 @@ export const footerData = {
 
   secondaryLinks: [{ text: "Terms" }, { text: "Privacy Policy" }],
   socialLinks: [
-    { ariaLabel: "X", icon: "tabler:brand-x", href: "https://x.com/HiAILabs" },
-    {
-      ariaLabel: "Github",
-      icon: "tabler:brand-github",
-      href: "https://github.com/hiai-labs",
-    },
     {
       ariaLabel: "Discord",
       icon: "tabler:brand-discord",
       href: "https://discord.gg/GtebUJjS",
     },
+    { ariaLabel: "X", icon: "tabler:brand-x", href: "https://x.com/HiAILabs" },
+    // {
+    //   ariaLabel: "Github",
+    //   icon: "tabler:brand-github",
+    //   href: "https://github.com/hiai-labs",
+    // },
   ],
 };
