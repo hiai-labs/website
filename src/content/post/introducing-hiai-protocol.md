@@ -1,11 +1,11 @@
 ---
 publishDate: 2025-02-16T00:00:00Z
 # author: John Smith
-title: Introducing HiAI Protocol
+title: Introducing HiAI Protocol (WIP)
 #excerpt: Start your web journey with AstroWind – harness Astro and Tailwind CSS for a stunning site. Explore our guide now.
 image: ~/assets/images/hiai-hero.png
 imageClass: "bg-transparent object-contain mx-auto max-w-full"
-category: Announcement
+category: Announcement (WIP)
 # tags:
 #   - astro
 #   - tailwind css
