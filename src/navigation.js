@@ -60,57 +60,22 @@ export const footerData = {
   // links: [
   //   {
   //     title: "Platform",
-  //     links: [
-  //       { text: "Developer API", href: "#" },
-  //       { text: "Partners", href: "#" },
-  //     ],
+  //     links: [{ text: "Developer API" }, { text: "Partners" }],
   //   },
   //   {
   //     title: "Support",
-  //     links: [
-  //       { text: "Docs", href: "#" },
-  //       { text: "Community Forum", href: "#" },
-  //     ],
+  //     links: [{ text: "Docs" }, { text: "Community Forum" }],
   //   },
   //   {
   //     title: "Company",
-  //     links: [
-  //       { text: "About", href: "#" },
-  //       { text: "Careers", href: "#" },
-  //       { text: "Press", href: "#" },
-  //     ],
+  //     links: [{ text: "About" }, { text: "Careers" }, { text: "Press" }],
   //   },
   // ],
 
-  // secondaryLinks: [
-  //   { text: "Terms", href: getPermalink("/terms") },
-  //   { text: "Privacy Policy", href: getPermalink("/privacy") },
-  // ],
-  // socialLinks: [
-  //   { ariaLabel: "X", icon: "tabler:brand-x", href: "#" },
-  //   {
-  //     ariaLabel: "Github",
-  //     icon: "tabler:brand-github",
-  //     href: "https://github.com/orgs/hiai-labs",
-  //   },
-  // ],
-
-  links: [
-    {
-      title: "Platform",
-      links: [{ text: "Developer API" }, { text: "Partners" }],
-    },
-    {
-      title: "Support",
-      links: [{ text: "Docs" }, { text: "Community Forum" }],
-    },
-    {
-      title: "Company",
-      links: [{ text: "About" }, { text: "Careers" }, { text: "Press" }],
-    },
+  secondaryLinks: [
+    { text: "Terms", href: getPermalink("/terms") },
+    { text: "Privacy Policy", href: getPermalink("/privacy") },
   ],
-
-  secondaryLinks: [{ text: "Terms" }, { text: "Privacy Policy" }],
   socialLinks: [
     {
       ariaLabel: "Discord",
@@ -124,4 +89,7 @@ export const footerData = {
     //   href: "https://github.com/hiai-labs",
     // },
   ],
+  footNote: `
+    @ HiAI Labs 2025
+  `,
 };
