@@ -1,0 +1,88 @@
+---
+const visionData = {
+  title: "Our Vision",
+  visions: ["AI of the Humans, by the Humans,", "for the Humans."],
+  items: [
+    `Human intelligence is vital at every stage of AI development—from data annotation and model training to model evaluation and AI safety. AI development should be shaped and guided by human intelligence to better understand and benefit humans.`,
+    `The ability to contribute to AI development and reap its benefits, both technological and economic, should be accessible to everyone. We aim to build a transparent and fair AI landscape, where participation in AI development is open to all, and financial rewards are equitably distributed to everyone.`,
+  ],
+};
+---
+
+<div class="vision-container">
+  <div class="title">
+    <img src="/imgs/mp4/vision.png">
+    <!-- <video src="/imgs/mp4/vision.mp4" autoplay muted playsinline></video> -->
+  </div>
+  <div class="vision" id="visionsContent"></div>
+  <div class="visions-description">
+    {visionData.items.map((item) => <p>{item}</p>)}
+  </div>
+</div>
+
+<script>
+  import { TypeWriter } from "~/utils/animate.js";
+  const text = ["AI of the Humans, by the Humans,", "for the Humans."].join(
+    ";"
+  );
+  new TypeWriter({
+    dom: document.getElementById("visionsContent"),
+    text: text,
+  });
+</script>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+
+  @keyframes textAnimate {
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 15rem;
+    }
+  }
+
+  .vision-container {
+    @extend .container;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    margin: 4rem 0;
+    .title {
+      width: 100%;
+      margin: 1rem 0;
+    }
+    .vision {
+      @extend .title-style;
+      padding: 1.5rem 0 1.5rem 0;
+      height: 13rem;
+    }
+    .visions-description {
+      p {
+        overflow: hidden;
+        animation: textAnimate 1.5s linear;
+        margin: 2rem 0 0 0;
+        text-align: center;
+        line-height: $textLineHight;
+        color: var(--second-color);
+        &:first-child {
+          margin-top: 0;
+        }
+        font: {
+          size: 1rem;
+          family: var(--font-family);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .vision-container {
+      margin: 0 0 4rem 0;
+      .vision {
+        padding: 1.5rem 0;
+      }
+      .title img {
+        width: 100%;
+      }
+    }
+  }
+</style>

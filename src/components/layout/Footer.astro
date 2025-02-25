@@ -1,0 +1,112 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="layout-footer">
+  <div class="footer-top">
+    <div class="footer-logo">
+      <a href="/">HiAI</a>
+    </div>
+    <div class="footer-links">
+      <a href="/terms">Terms</a>·<a href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>@ HiAI Labs 2025</span>
+    <div class="footer-social">
+      <div class="footer-social-item">
+        <a href="https://discord.gg/GtebUJjS" target="_blank">
+          <Icon name={"tabler:brand-discord"} class="w-5 h-5" /></a
+        >
+      </div>
+      <div class="footer-social-item">
+        <a href="https://x.com/HiAILabs" target="_blank">
+          <Icon name={"tabler:brand-x"} class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  $fontFamily:
+    Inter,
+    Apple System,
+    "SF Pro SC",
+    "SF Pro Display",
+    "Helvetica Neue",
+    "Arial",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "STHeiti",
+    "Microsoft YaHei",
+    "Microsoft JhengHei",
+    "Source Han Sans SC",
+    "Noto Sans CJK SC",
+    "Source Han Sans CN",
+    sans-serif;
+  $paddingTop: 5rem;
+  .layout-footer {
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    .footer-top {
+      padding: 3rem 0;
+    }
+    .footer-bottom {
+      padding: 3rem 0;
+      font-family: $fontFamily;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .footer-logo {
+      font-family: $fontFamily;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-right: auto;
+      line-height: 2;
+    }
+    .footer-links {
+      font-family: $fontFamily;
+      font-size: 1.2rem;
+      a {
+        color: rgba(255, 255, 255, 0.85);
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+    }
+
+    .footer-social {
+      float: right;
+      margin-top: -1rem;
+      &-item {
+        float: left;
+        margin-left: 0.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .layout-footer {
+      height: auto;
+      padding: 0 2rem;
+      flex-direction: column-reverse;
+      background: none;
+    }
+  }
+</style>
