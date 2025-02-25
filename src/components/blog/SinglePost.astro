@@ -85,11 +85,11 @@ const { post, url } = Astro.props;
           <Image
             src={post.image}
             class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            sizes="(max-width: 900px) 400px, 900px"
+            widths={[675, 1200]}
+            sizes="(max-width: 1200px) 675px, 1200px"
             alt={post?.excerpt || ""}
-            width={900}
-            height={506}
+            width={1200}
+            height={675}
             loading="eager"
             decoding="async"
           />

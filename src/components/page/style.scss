@@ -1,0 +1,57 @@
+// 定义字体
+$fontFamily:
+  Inter,
+  Apple System,
+  "SF Pro SC",
+  "SF Pro Display",
+  "Helvetica Neue",
+  "Arial",
+  "PingFang SC",
+  "Hiragino Sans GB",
+  "STHeiti",
+  "Microsoft YaHei",
+  "Microsoft JhengHei",
+  "Source Han Sans SC",
+  "Noto Sans CJK SC",
+  "Source Han Sans CN",
+  sans-serif;
+
+$profileHeight: 35rem;
+$textLineHight: 1.6;
+
+// 定义flex容器
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+// 定义标题样式
+.title-style {
+  color: #fff;
+  padding: 1.5rem 6rem;
+  line-height: $textLineHight;
+  // white-space: nowrap;
+  font: {
+    size: 3rem;
+    weight: bold;
+    family: $fontFamily;
+  }
+}
+
+.content-style {
+  color: var(--second-color);
+  font: {
+    size: 0.9rem;
+    family: var(--font-family);
+  }
+  line-height: $textLineHight;
+}
+
+@media screen and (max-width: 636px) {
+  .title-style {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,56 @@
+---
+const { sloganData } = Astro.props;
+---
+
+<div class="slogan-container">
+  <div class="logo" id="sloganContent" text-title={sloganData.title.join(";")}>
+  </div>
+  <div class="slogan">{sloganData.content}</div>
+</div>
+
+<script>
+  import { TypeWriter } from "~/utils/animate.js";
+  const dom = document.getElementById("sloganContent");
+  const text = dom?.getAttribute("text-title");
+  new TypeWriter({
+    dom: dom,
+    text: text,
+  });
+</script>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+
+  @keyframes textAnimate {
+    from {
+      height: 0;
+    }
+    to {
+      height: 5rem;
+    }
+  }
+
+  .slogan-container {
+    @extend .container;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    margin: -4rem 0 7.5rem 0 ;
+    .logo {
+      @extend .title-style;
+      height: 12rem;
+    }
+    .slogan {
+      @extend .content-style;
+      animation: textAnimate 1.5s linear;
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .slogan-container {
+      margin: 3rem 0;
+      height: auto;
+      .logo {
+        padding: 1.5rem 0;
+        height: auto;
+      }
+    }
+  }
+</style>

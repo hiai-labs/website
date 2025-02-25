@@ -1,0 +1,39 @@
+---
+import Logo from './components/Logo.astro'
+import Menus from './components/Menus.astro'
+---
+<div class="layout-header">
+  <Logo />
+  <div class="header-menus">
+    <Menus />
+  </div>
+</div>
+
+<style lang="scss">
+$headerHeight: 6rem;
+.layout-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: $headerHeight;
+  line-height: $headerHeight;
+  padding: 0 calc((100% - var(--page-width)) / 2);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header-menus {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 636px) {
+  .layout-header {
+    padding: 0 2rem;
+  }
+}
+</style>

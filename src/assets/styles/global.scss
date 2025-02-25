@@ -1,0 +1,58 @@
+:root {
+  --primary-color: #090b17;
+  --second-color: rgba(255, 255, 255, 0.6);
+  --page-width: 1200px;
+  --font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+html,
+body {
+  background-color: var(--primary-color);
+  font-size: 14px / 1.5;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  overflow-x: hidden;
+  // background-image:
+  //   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  //   radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  //   radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  //   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  // background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  // background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+.main-container {
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+* {
+  box-sizing: border-box;
+}
+
+// ::-webkit-scrollbar {
+//   width: 6px;
+//   height: 6px;
+//   background-color: #eee;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background-color: #eee;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: #787878;
+//   border-radius: 10px;
+// }

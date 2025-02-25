@@ -1,0 +1,82 @@
+---
+const { theme, round, href, target, index } = Astro.props;
+
+const buttonClass = [
+  "button",
+  theme || "default",
+  round ? "round" : "",
+  (index || 0) === 0 ? "first" : "first-not",
+].join(" ");
+---
+
+<div class={buttonClass}>
+  <a href={href || "#"} target={target || "_blank"}><slot>Button</slot></a>
+</div>
+
+<style lang="scss">
+  $buttonHeight: 2.8rem;
+  .button {
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 2px solid transparent;
+    color: white;
+    max-width: 15rem;
+    text-align: center;
+    height: $buttonHeight;
+    line-height: $buttonHeight * 0.92;
+    a {
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      height: $buttonHeight;
+      line-height: $buttonHeight * 0.92;
+      padding: 0 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    &.plain {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    &.default {
+      background-color: #0078df;
+    }
+    &.primary {
+      background: linear-gradient(270deg, #0078df 4%, #ffffff 31%);
+      border: none;
+      a {
+        color: #222222;
+      }
+    }
+    &.round {
+      border-radius: 20rem;
+      a {
+        border-radius: 20rem;
+      }
+    }
+    &.first {
+      margin-left: 0;
+    }
+    &.first-not {
+      margin-left: 2rem;
+    }
+    &:hover {
+      box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .button {
+      width: 100%;
+      margin: 0 auto 2rem auto;
+      &.first {
+        margin-left: auto;
+      }
+      &.first-not {
+        margin-left: auto;
+        margin-top: 0;
+      }
+    }
+  }
+</style>

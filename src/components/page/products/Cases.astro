@@ -1,0 +1,111 @@
+---
+const { userCaseData } = Astro.props;
+---
+
+<div class="cases-container">
+  <div class="title">
+    {
+      userCaseData.title.map((t) => (
+        <span>{t}</span>
+        <br />
+      ))
+    }
+  </div>
+  <div class="content">
+    {userCaseData.content}
+  </div>
+  <div class="cases">
+    {
+      userCaseData.cases.map((userCase) => (
+        <div class="case-item">
+          <div class="case-item-icon">
+            <img src={userCase.icon} alt={userCase.title} />
+          </div>
+          <div class="case-item-title">{userCase.title}</div>
+          <div class="case-item-content">{userCase.content}</div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+  $paddingSize: 1.5rem;
+  .cases-container {
+    margin: 8rem 0;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    .title {
+      @extend .title-style;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+    .content {
+      @extend .content-style;
+      text-align: center;
+      margin: 0 0 4rem 0;
+    }
+  }
+  .cases {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .case-item {
+      width: calc(100% / 3 - 1rem);
+      padding: $paddingSize;
+      // box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.2);
+      // margin: 0.5rem;
+      &:hover {
+        box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.3);
+        .case-item-icon {
+          transform: scale(0.95);
+          transition: all 0.5s ease-in-out;
+        }
+      }
+      &-icon{
+        transition: all 0.5s ease-in-out;
+        img {
+          height: 2rem;
+          width: 2rem;
+        }
+      } 
+      &-title {
+        margin: 1.5rem 0 1rem 0;
+        position: relative;
+        &:before {
+          content: ' ';
+          position: absolute;
+          top: 0.2rem;
+          left: -$paddingSize;
+          width: 0.2rem;
+          height: 1rem;
+          background-color: white;
+        }
+        font: {
+          size: 1.2rem;
+          weight: bold;
+          family: $fontFamily;
+        }
+      }
+      &-content {
+        @extend .content-style;
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) { 
+    .cases-container {
+      margin: 4rem 0 4rem 0;
+      .content {
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+      .cases {
+        flex-direction: column;
+        .case-item {
+          width: 100%;
+        }
+      }
+    }
+  }
+</style>

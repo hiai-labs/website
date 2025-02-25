@@ -1,0 +1,143 @@
+---
+const { profileData } = Astro.props;
+---
+
+<div class="profile-container">
+  <div class="profile">
+    <div class="profile-text">
+      <div class="title">{profileData.title}</div>
+      <div class="content">
+        {
+          profileData.contents.map((content) => (
+            <span>{content}</span>
+            <br />
+          ))
+        }
+      </div>
+    </div>
+    <div class="profile-image">
+      <img class="web" src={profileData.image}/>
+      <video playsinline class="h5" src={profileData.imageH5} autoplay muted></video>
+    </div>
+  </div>
+  <div class="profile-bg">
+    <img src="/imgs/product-bg.png" class="profile-bg-image">
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+  $profileHeight: 42rem;
+
+  @keyframes profile-bg {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes profile-image {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .profile-container {
+    position: relative;
+    height: $profileHeight;
+    overflow: hidden;
+    .profile {
+      height: 100%;
+      position: relative;
+      padding: 0 calc((100% - var(--page-width)) / 2);
+      height: $profileHeight;
+      display: flex;
+      flex-direction: row;
+      .profile-image {
+        width: calc(100% - 26rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .web {
+          width: 100%;
+          height: auto;
+          animation: profile-image 0.8s ease-in-out forwards;
+          display: block;
+        }
+        .h5 {
+          display: none;
+          width: 100%;
+          height: auto;
+        }
+      }
+      .profile-text {
+        width: 26rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        .title {
+          @extend .title-style;
+          text-align: left;
+          padding: 1.5rem 0;
+          width: 100%;
+        }
+        .content {
+          line-height: $textLineHight;
+          color: var(--second-color);
+        }
+      }
+      
+    }
+    .profile-bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0 calc((100% - var(--page-width)) / 2);
+      .profile-bg-image {
+        width: 100%;
+        margin-left: -20%;
+        animation: profile-bg 0.8s ease-in-out forwards;
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .profile-container {
+      height: auto;
+      .profile {
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+        .profile-text {
+          width: 100%;
+          text-align: center;
+          .title {
+            text-align: center;
+          }
+        }
+        .profile-image {
+          width: 100%;
+          display: block;
+          flex-grow: 0;
+          .web {
+            display: none
+          }
+          .h5 {
+            display: block;
+          }
+        }
+      }
+    }
+    .profile-bg {
+      display: none;
+    }
+  }
+</style>

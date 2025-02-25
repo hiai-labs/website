@@ -1,0 +1,147 @@
+---
+const { featuresData } = Astro.props;
+---
+
+<div class="features-container">
+  {
+    featuresData.map((feature, index) => (
+      <div class={index % 2 !== 0 ? "feature-item" : "feature-item right"}>
+        <div class="text">
+          <div class="title">{feature.title}</div>
+          <div class="description">{feature.description}</div>
+          <ul class="features">
+            {feature.features.map((feat) => (
+              <li>
+                <b>{feat.title}</b>
+                {feat.content}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="image">
+          <video
+            src={feature.icon}
+            playsinline
+            autoplay
+            muted
+            onload="this.currentTime = 10000"
+            onloadeddata="this.currentTime = 10000"
+            onmouseover="this.play()"
+            onmouseout="this.pause()"
+          />
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+
+  @keyframes textAnimate {
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 28rem;
+    }
+  }
+
+  @keyframes textAnimate-h5 {
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 50rem;
+    }
+  }
+
+  .features-container {
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    .feature-item {
+      display: flex;
+      flex-direction: row;
+      margin-top: 8rem;
+      &:first-child {
+        margin-top: 0;
+      }
+      &.right {
+        flex-direction: row-reverse;
+        .text {
+          margin-left: 2rem;
+        }
+        .image {
+          margin-left: -2rem;
+          margin-right: auto;
+        }
+      }
+      .text {
+        flex-grow: 1;
+        width: calc(100% - 30rem);
+        overflow: hidden;
+        animation: textAnimate 3s linear;
+        .title {
+          @extend .title-style;
+          padding: 0;
+        }
+        .description {
+          @extend .content-style;
+          margin: 1.5rem 0;
+        }
+        .features {
+          li {
+            line-height: $textLineHight;
+            color: var(--second-color);
+            margin-top: 0.5rem;
+          }
+          b {
+            color: #fff;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: -2rem;
+        margin-left: auto;
+        video {
+          width: 30rem;
+          object-fit: fill;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .features-container {
+      .feature-item {
+        flex-direction: column-reverse;
+        margin-top: 2rem;
+        &.right {
+          flex-direction: column-reverse;
+          .image {
+            margin-right: 0rem;
+            margin-left: 0rem;
+          }
+          .text {
+            margin-left: 0;
+          }
+        }
+        .text {
+          width: 100%;
+          animation-name: textAnimate-h5;
+        }
+        .image {
+          margin-right: 0rem;
+          margin-left: 0rem;
+          video {
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+</style>

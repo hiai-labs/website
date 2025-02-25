@@ -56,20 +56,29 @@ const metadata = merge(
     ...(post?.metadata
       ? { ...post.metadata, canonical: post.metadata?.canonical || url }
       : {}),
-  },
+  }
 ) as MetaData;
 ---
 
 <Layout metadata={metadata}>
-  <SinglePost post={{ ...post, image: image }} url={url}>
-    {
-      post.Content ? (
-        <post.Content />
-      ) : (
-        <Fragment set:html={post.content || ""} />
-      )
-    }
-  </SinglePost>
-  <ToBlogLink />
-  <!-- <RelatedPosts post={post} /> -->
+  <section class="blog-post">
+    <SinglePost post={{ ...post, image: image }} url={url}>
+      {
+        post.Content ? (
+          <post.Content />
+        ) : (
+          <Fragment set:html={post.content || ""} />
+        )
+      }
+    </SinglePost>
+    <ToBlogLink />
+    <RelatedPosts post={post} />
+  </section>
 </Layout>
+
+<style lang="scss">
+  .blog-post {
+    margin: 8rem 0 4rem 0;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+  }
+</style>
