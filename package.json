@@ -7,7 +7,7 @@
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >= 21.0.0"
   },
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@10.5.2",
   "pnpm": {
     "overrides": {
       "eslint": "8"
@@ -20,7 +20,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
-    "lint:eslint": "eslint ."
+    "lint:eslint": "eslint .",
+    "postinstall": "is-ci || mise postinstall"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
@@ -54,6 +55,7 @@
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "globals": "^15.8.0",
+    "is-ci": "^4.1.0",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
     "pagecrypt": "^6.1.1",
