@@ -1,7 +1,7 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -10,7 +10,6 @@ import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import compress from "astro-compress";
 
-import pageCryptIntegration from "./integrations/astro-pagecrypt-integration.js";
 import astrowind from "./vendor/integration";
 
 import {
@@ -85,7 +84,6 @@ export default defineConfig({
   ],
 
   image: {
-    service: squooshImageService(),
     domains: ["cdn.pixabay.com"],
   },
 
