@@ -1,0 +1,69 @@
+[
+  {
+    "code": "home",
+    "name": "Home",
+    "url": "/",
+    "icon": "home",
+    "children": []
+  },
+  {
+    "code": "products",
+    "name": "Products",
+    "url": "",
+    "icon": "products",
+    "children": [
+      {
+        "code": "data engine",
+        "name": "Data Engine",
+        "url": "/products/data-engine",
+        "icon": "data-engine"
+      },
+      {
+        "code": "ai platform",
+        "name": "AI Platform",
+        "url": "/products/ai-platform",
+        "icon": "ai-platform"
+      },
+      {
+        "code": "agora",
+        "name": "Agora (Coming Soon)",
+        "url": "",
+        "icon": "agora"
+      }
+    ]
+  },
+  {
+    "code": "resources",
+    "name": "Resources",
+    "url": "",
+    "icon": "resources",
+    "children": [
+      {
+        "code": "blog",
+        "name": "Blog",
+        "url": "/blog",
+        "icon": "blog"
+      }
+    ]
+  },
+  {
+    "code": "community",
+    "name": "Community",
+    "url": "",
+    "icon": "community",
+    "children": [
+      {
+        "code": "discord",
+        "name": "Discord",
+        "url": "https://discord.gg/GtebUJjS",
+        "icon": "discord"
+      },
+      {
+        "code": "twitter",
+        "name": "X/Twitter",
+        "url": "https://x.com/HiAILabs",
+        "icon": "twitter"
+      }
+    ]
+  }
+]

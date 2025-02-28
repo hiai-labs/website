@@ -1,0 +1,212 @@
+---
+import Launch from './Launch.astro'
+import menus from '../../../assets/menus.json'
+
+const { pathname } = Astro.url;
+
+// interface Menu {
+//   name: string;
+//   code: string;
+//   url: string;
+//   children: Menu[];
+//   icon: string;
+// }
+
+// const menus: Menu[] = await fetch(`${origin}/data/menus.json`).then((res) =>
+//   res.json()
+// );
+---
+
+<div class="menus-container" id="menusContainer">
+  <ul class="menus">
+    {
+      menus.map((menu) => (
+        <li class={pathname === menu.url ? 'menu-item active' : 'menu-item'} >
+          {menu.children.length > 0 && (
+            <span>{menu.name} <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4262" width="256" height="256"><path d="M890.335385 330.911222c-12.576374-12.416396-32.800753-12.352748-45.248112 0.192662L517.248327 661.951458 184.831931 332.512727c-12.576374-12.447359-32.800753-12.352748-45.280796 0.192662-12.447359 12.576374-12.352748 32.831716 0.192662 45.280796l353.311652 350.112082c0.543583 0.543583 1.247144 0.672598 1.792447 1.183497 0.127295 0.127295 0.159978 0.287273 0.287273 0.416288 6.239161 6.175514 14.399785 9.280473 22.527725 9.280473 8.224271 0 16.479505-3.168606 22.720387-9.471415l350.112082-353.311652C902.975407 363.615643 902.880796 343.360301 890.335385 330.911222z" fill="currentColor" p-id="4263"></path></svg></span>
+            <ul class="sub-menus">
+              {menu.children.map((_menu) => (
+                <li class={pathname === _menu.url ? 'sub-menu-item active' : 'sub-menu-item'}>
+                  <a href={_menu.url || '#'}>{_menu.name}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+          {menu.children.length === 0 && <a href={menu.url}>{menu.name}</a>}
+        </li>
+      ))
+    }
+  </ul>
+  <Launch />
+</div>
+<div class="menu-toggle">
+  <svg id="menuShow" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4278" width="256" height="256"><path d="M170.666667 213.333333h682.666666v85.333334H170.666667V213.333333z m0 512h682.666666v85.333334H170.666667v-85.333334z m0-256h682.666666v85.333334H170.666667v-85.333334z" fill="currentColor" p-id="4279"></path></svg>
+  <svg id="menuHide" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5334" width="256" height="256"><path d="M794.8 794.8c-14 14-36.9 14-50.9 0L229.2 280.1c-14-14-14-36.9 0-50.9s36.9-14 50.9 0L794.9 744c13.9 13.9 13.9 36.8-0.1 50.8z" fill="#ffffff" p-id="5335"></path><path d="M794.8 229.2c14 14 14 36.9 0 50.9L280.1 794.8c-14 14-36.9 14-50.9 0s-14-36.9 0-50.9L744 229.1c13.9-13.9 36.8-13.9 50.8 0.1z" fill="currentColor" p-id="5336"></path></svg>
+</div>
+
+<script is:inline>
+  const menuShow = document.getElementById('menuShow')
+  const menuHide = document.getElementById('menuHide')
+  const menusContainer = document.getElementById('menusContainer')
+  menuShow.onclick = () => {
+    menuShow.style.display = 'none'
+    menusContainer.style.display = 'flex'
+    menuHide.style.display = 'block'
+    document.body.style.overflow = 'hidden'
+  }
+  menuHide.onclick = () => {
+    menuShow.style.display = 'block'
+    menusContainer.style.display = 'none'
+    menuHide.style.display = 'none'
+    document.body.style.overflow = 'auto'
+  }
+</script>
+
+<style lang="scss">
+  $menuHeight: 3.4rem;
+  $menuWidth: 16rem;
+  $borderRadius: 0.3rem;
+  .menus-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: $menuHeight;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .menus {
+    flex-grow: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.1rem;
+    justify-content: center;
+    .menu-item {
+      padding: 0 1.5rem;
+      margin-right: 0.5rem;
+      &:last-child {
+        margin-right: 0;
+      }
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap;
+      svg.icon {
+        width: 1.2rem;
+        height: 1rem;
+        margin-left: 0.3rem;
+        transition: all 0.3s ease-in-out;
+      }
+      .sub-menus {
+        display: none;
+      }
+      a, span {
+        text-decoration: none;
+        color: var(--second-color);
+      }
+      &:hover {
+        a {
+          test-decoration: underline;
+        }
+        svg.icon {
+          transform: rotate(180deg);
+          transition: all 0.3s ease-in-out;
+        }
+        .sub-menus {
+          display: block;
+        }
+      }
+      &.active {
+        a {
+          font-weight: bold;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .sub-menus {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    background-color: #0b0d1a;
+    border-radius: $borderRadius;
+    .sub-menu-item {
+      list-style: none;
+      height: $menuHeight;
+      line-height: $menuHeight;
+      width: $menuWidth;
+      a {
+        height: $menuHeight;
+        line-height: $menuHeight;
+        width: $menuWidth;
+        padding: 0 1.5rem;
+        display: inline-block;
+      }
+      &.active {
+        a {
+          font-weight: 500;
+          color: #ffffff;
+        }
+      }
+      &:hover {
+        background-color: #393f58;
+        border-radius: $borderRadius;
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .menus-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--primary-color);
+      width: 100%;
+      height: 100vh;
+      z-index: 9;
+      flex-direction: column;
+      align-items: normal;
+      text-align: center;
+      overflow: hidden;
+      display: none;
+      .menus {
+        display: block;
+        flex-grow: 1;
+        text-align: left;
+        line-height: 4;
+        margin-top: 1rem;
+        .menu-item {
+          padding: 0 2rem;
+          margin-right: 0;
+          .sub-menus {
+            position: relative;
+            display: block;
+          }
+        }
+      }
+    }
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      right: 1.5rem;
+      top: 1rem;
+      z-index: 99;
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+    .sub-menus { 
+      .sub-menu-item {
+        width: 100%;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+import Button from "~/components/common/Button.astro";
+
+const joinData = {
+  title: "Join Our Mission",
+  content: "to Fuel, Develop, Monetize and Harness AI in an Open Economy.",
+  buttons: [
+    {
+      text: "Launch APP",
+      link: "https://data-engine.staging.hiailabs.com/",
+      theme: "plain",
+    },
+    {
+      text: "Join Our Discord",
+      link: "https://discord.gg/hiailabs",
+      theme: "primary",
+    },
+  ],
+};
+---
+
+<div class="join-container">
+  <div class="join-bg">
+    <video src="/imgs/mp4/join.webm" autoplay muted playsinline></video>
+    <div class="join-content">
+      <div class="title">{joinData.title}</div>
+      <div class="content">{joinData.content}</div>
+      <div class="buttons">
+        {
+          joinData.buttons.map((button, index) => (
+            <Button
+              class="my-button"
+              href={button.link}
+              theme={button.theme}
+              round="round"
+              index={index}
+            >
+              {button.text}
+            </Button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+  $height: 70rem;
+  .join-container {
+    margin: 0 0 8rem 0;
+    .join-bg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      video,
+      img {
+        width: 1600px;
+        height: auto;
+        object-fit: fill;
+      }
+    }
+    .join-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @extend .container;
+      height: 100%;
+      width: 100%;
+      .title {
+        @extend .title-style;
+      }
+      .content {
+        line-height: $textLineHight;
+        color: var(--second-color);
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+      }
+    }
+  }
+  @media screen and (max-width: 636px) {
+    .join-container {
+      height: 34rem;
+      margin: 4rem 0;
+      .join-bg {
+        height: auto;
+        video,
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .join-content {
+        height: 37rem;
+        .title {
+          font-size: 1.5rem;
+        }
+        .content {
+          margin-top: 6rem;
+        }
+        .buttons {
+          flex-direction: column;
+          .button {
+            &.primary {
+              margin-top: 2rem;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
