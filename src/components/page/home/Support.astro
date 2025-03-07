@@ -1,0 +1,146 @@
+---
+const supportors = [
+  {
+    name: "APTOS",
+    logo: "/imgs/aptos.png",
+  },
+  {
+    name: "Google Clound",
+    logo: "/imgs/google.png",
+  },
+];
+---
+
+<div class="support-container">
+  <div class="title">Supported By</div>
+  <ul class="support-list">
+    {
+      supportors.map((item, idx) => (
+        <li class="support-item">
+          <div class="support-item-box">
+            <div class="support-logo">
+              <img class={"img" + idx} src={item.logo} alt={item.name} />
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+  $dotSize: 0.15rem;
+  .box {
+    background:
+      linear-gradient(270deg, #ffffff, #ffffff) 0 0 no-repeat,
+      linear-gradient(180deg, #ffffff, #ffffff) 0 0 no-repeat,
+      linear-gradient(270deg, #ffffff, #ffffff) 100% 0 no-repeat,
+      linear-gradient(180deg, #ffffff, #ffffff) 100% 0 no-repeat,
+      linear-gradient(270deg, #ffffff, #ffffff) 0 100% no-repeat,
+      linear-gradient(180deg, #ffffff, #ffffff) 0 100% no-repeat,
+      linear-gradient(270deg, #ffffff, #ffffff) 100% 100% no-repeat,
+      linear-gradient(270deg, #ffffff, #ffffff) 100% 100% no-repeat;
+    background-size:
+      $dotSize $dotSize,
+      $dotSize $dotSize,
+      $dotSize $dotSize,
+      $dotSize $dotSize;
+  }
+  .support-container {
+    @extend .container;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    margin: 14rem 0;
+    .title {
+      @extend .title-style;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      @extend .box;
+      margin: 4rem 0 0 0;
+      padding: 1.5rem 8rem;
+    }
+    .support-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem;
+      width: 100%;
+      .support-item {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24rem;
+        height: 10rem;
+        line-height: 10rem;
+        background-image: url("/imgs/support.png");
+        background-size: 100% 100%;
+        box-sizing: border-box;
+        &:first-child {
+          margin-right: 2rem;
+        }
+        .support-item-box {
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 90%;
+          height: 6rem;
+          white-space: nowrap;
+        }
+      }
+      .support-logo {
+        width: 60%;
+        height: 5rem;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          180deg,
+          #2b364e 0%,
+          #263047 17%,
+          #161a2d 100%
+        );
+        box-sizing: border-box;
+        border: 1px solid;
+        border-image: linear-gradient(
+            241deg,
+            rgba(255, 255, 255, 0) 1%,
+            rgba(255, 255, 255, 0.27) 42%,
+            rgba(0, 0, 0, 0) 82%
+          )
+          1;
+        img {
+          object-fit: contain;
+          &.img0 {
+            width: 60%;
+          }
+          &.img1 {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .support-container {
+      margin: 0 0 6rem 0;
+      padding: 0 2rem;
+      .title {
+        font-size: 2rem;
+        padding: 1.5rem 4rem;
+      }
+      .support-list {
+        flex-direction: column;
+        .support-item {
+          margin-top: 1rem;
+          width: 100%;
+          &:first-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+</style>

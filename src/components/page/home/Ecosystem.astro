@@ -1,0 +1,263 @@
+---
+const ecosystemData = {
+  title: "Our Ecosystem",
+  content:
+    "The Decentralized Platform where Humans Fuel, Develop, Monetize, and Harness AI in an Open Economy.",
+  items: [
+    {
+      title: "Data Engine",
+      icon: "/imgs/mp4/ecosystem1.webm",
+      content:
+        "The Data Engine is a decentralized data labeling service, allowing anyone to participate in fueling AI training and evaluation. By annotating data in exchange for rewards, contributors not only power the growth of cutting-edge AI systems but also have an opportunity to gain from their efforts in a seamless way. With blockchain securing each transaction, every participant gets fair compensation based on the quality and quantity of their contributions.",
+    },
+    {
+      title: "AI Platform",
+      icon: "/imgs/mp4/ecosystem2.webm",
+      content:
+        "Building AI models has never been easier. With AI Platform, we enable creators to develop custom and no-code AI systems. Whether you’re an experienced developer or someone with no coding background, this platform allows you to harness the power of AI, without needing to write a single line of code. This is the ultimate platform to experiment, create, and deploy innovative AI apps.",
+    },
+    {
+      title: "AI Agora",
+      icon: "/imgs/mp4/ecosystem3.webm",
+      content:
+        "As AI becomes an integral part of society, responsible AI governance becomes a necessity. Agora is a social forum where AI users, developers, and the community can converge to discuss, deliberate, and shape the future of artificial intelligence. Through Agora, we encourage open discussions on AI safety, transparency, ethical considerations, and ways to optimize AI's benefits for humanity. This platform serves as a voice for the community, ensuring that the AI technologies that shape our world are not only innovative but also responsible and inclusive.",
+    },
+  ],
+};
+---
+
+<div class="ecosystem-container">
+  <div class="ecosystem-box">
+    <div class="text-bg">
+      <img src="/imgs/ecosystem.png" />
+    </div>
+    <div class="text-bottom">
+      <div class="title">{ecosystemData.title}</div>
+      <div class="content">
+        {ecosystemData.content}
+      </div>
+    </div>
+  </div>
+  <div class="ecosystem-list">
+    {
+      ecosystemData.items.map((item) => (
+        <div class="ecosystem-item">
+          <div class="ecosystem-item-conner" />
+          <div class="ecosystem-item-icon">
+            {/* <img src="imgs/mp4/ecosystem1.svg" /> */}
+            <video
+              src={item.icon}
+              autoplay
+              muted
+              playsinline
+              onmouseover="this.play()"
+              onmouseout="this.pause()"
+              onload="this.currentTime = 10000"
+              onloadeddata="this.currentTime = 10000"
+            />
+          </div>
+          <div class="ecosystem-item-text">
+            <div class="title">{item.title}</div>
+            <div class="content">{item.content}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+
+  $iconSize: 25rem;
+
+  .ecosystem-container {
+    @extend .container;
+    padding: 0 calc((100% - var(--page-width)) / 2);
+    margin: 8rem 0;
+    .ecosystem-box {
+      width: 100%;
+      padding-top: 10rem;
+      position: relative;
+      .text-bg {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        img {
+          height: 13.5rem;
+        }
+        user-select: none;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.3) 30%,
+          rgba(255, 255, 255, 0) 60%
+        );
+        background-clip: text;
+        color: var(--primary-color);
+        -webkit-text-stroke: 3px rgba(255, 255, 255, 0);
+      }
+      .text-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        .title {
+          @extend .title-style;
+          padding: 0;
+        }
+        .content {
+          @extend .content-style;
+        }
+      }
+    }
+    .ecosystem-list {
+      width: 100%;
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      .ecosystem-item {
+        width: calc(50% - 0.5rem);
+        border-radius: 1.5rem;
+        box-sizing: border-box;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.15);
+        position: relative;
+        &:hover {
+          box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.4);
+        }
+        &-conner {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 13rem;
+          height: 13rem;
+          border-radius: 1.5rem;
+          background-image: radial-gradient(
+            circle at top right,
+            rgb(0, 117, 255) 0%,
+            rgba(0, 117, 255, 0) 50%
+          );
+        }
+        &-icon {
+          background-color: rgba(255, 255, 255, 0.05);
+          video,
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: fill;
+          }
+        }
+        &-text {
+          height: calc(100% - #{$iconSize});
+          text-align: left;
+          margin-top: 1rem;
+          .title {
+            @extend .title-style;
+            font-size: 2rem;
+            padding: 0;
+          }
+          .content {
+            @extend .content-style;
+            text-align: left;
+          }
+        }
+
+        &:first-child {
+          width: 100%;
+          flex-direction: row-reverse;
+          padding: 1rem;
+          .ecosystem-item-conner {
+            right: auto;
+            left: 0;
+            background-image: radial-gradient(
+              circle at top left,
+              rgb(0, 117, 255) 0%,
+              rgba(0, 117, 255, 0) 50%
+            );
+          }
+          .ecosystem-item-icon video {
+            width: $iconSize;
+            // height: $iconSize;
+            object-fit: fill;
+          }
+          .ecosystem-item-text {
+            width: calc(100% - #{$iconSize});
+            height: auto;
+            margin-right: 2rem;
+            margin-top: 0;
+            text-align: justify;
+            padding: 0 1rem;
+            height: 80%;
+            margin-top: 0;
+            text-align: justify;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
+        }
+        &:last-child {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .ecosystem-container {
+      margin: 10rem 0 6rem 0;
+      .ecosystem-box {
+        height: 15rem;
+        .text-bg {
+          font-size: 8rem;
+          bottom: 6rem;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+      .ecosystem-list {
+        flex-direction: column;
+        .ecosystem-item {
+          width: 100%;
+          .ecosystem-item-icon video {
+            width: 100%;
+            height: auto;
+          }
+          &:first-child {
+            flex-direction: column;
+            .ecosystem-item-icon video {
+              width: 100%;
+              height: auto;
+              object-fit: fill;
+            }
+            .ecosystem-item-text {
+              width: 100%;
+              margin-right: 0;
+            }
+          }
+          &:last-child {
+            margin-left: 0;
+            .ecosystem-item-conner {
+              right: auto;
+              left: 0;
+              background-image: radial-gradient(
+                circle at top left,
+                rgb(0, 117, 255) 0%,
+                rgba(0, 117, 255, 0) 50%
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

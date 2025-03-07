@@ -1,0 +1,97 @@
+---
+const sloganData = {
+  title: "HiAI",
+};
+---
+
+<div class="slogan-container">
+  <div class="slogan-bg">
+    <video src="/imgs/mp4/slogan-bg.webm" autoplay loop muted playsinline
+    ></video>
+    <div class="mask"></div>
+  </div>
+  <div class="slogan-text">
+    <!-- <div class="logo">{sloganData.title}</div> -->
+    <div class="logo">
+      <img src="/imgs/logo.png" alt="logo" />
+    </div>
+    <div class="slogan" id="sloganContent">
+      The Decentralized Platform where<br /> Humans Develop AI<br />in an Open
+      Economy.
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../style.scss" as *;
+
+  @keyframes textAnimate {
+    from {
+      height: 0;
+    }
+    to {
+      height: 5rem;
+    }
+  }
+
+  $sloganHeight: 46rem;
+
+  .slogan-container {
+    position: relative;
+    .slogan-bg {
+      width: 100%;
+      height: $sloganHeight;
+      position: relative;
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .mask {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(180deg, rgba(9, 11, 23, 0) 0%, #090b17 55%);
+      }
+    }
+    .slogan-text {
+      @extend .container;
+      position: absolute;
+      top: 6rem;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      .logo {
+        img {
+          width: 20rem;
+          height: auto;
+        }
+        font: {
+          size: 6.6rem;
+          weight: bold;
+          family: $fontFamily;
+        }
+        letter-spacing: 0.5rem;
+      }
+      .slogan {
+        @extend .content-style;
+        margin-top: 1rem;
+        overflow: hidden;
+        animation: textAnimate 1s linear;
+      }
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    .slogan-container {
+      .slogan-bg {
+        height: $sloganHeight * 0.6;
+      }
+      .slogan-text {
+        top: 0;
+      }
+    }
+  }
+</style>
