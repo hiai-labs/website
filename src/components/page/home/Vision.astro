@@ -8,12 +8,13 @@ const visionData = {
   ],
 };
 ---
-
 <div class="vision-container">
   <div class="title">
     <video src="/imgs/mp4/vision.webm" autoplay muted playsinline></video>
   </div>
-  <div class="vision" id="visionsContent"></div>
+  <div class="vision" id="visionsContent">
+    
+  </div>
   <div class="visions-description">
     {visionData.items.map((item) => <p>{item}</p>)}
   </div>
@@ -46,15 +47,35 @@ const visionData = {
     @extend .container;
     padding: 0 calc((100% - var(--page-width)) / 2);
     margin: 4rem 0;
+    text-align: center; // Center content
+
     .title {
       width: 100%;
       margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Center align title
+      justify-content: center;
     }
+
+    .vision-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
     .vision {
       @extend .title-style;
-      padding: 1.5rem 0 1.5rem 0;
-      height: 13rem;
+      padding: 1.5rem 0;
+      height: auto;
     }
+
+    .vision-text {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
     .visions-description {
       p {
         overflow: hidden;
@@ -73,6 +94,7 @@ const visionData = {
       }
     }
   }
+
   @media screen and (max-width: 636px) {
     .vision-container {
       margin: 0 0 4rem 0;
@@ -85,3 +107,4 @@ const visionData = {
     }
   }
 </style>
+
