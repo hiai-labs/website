@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
 ---
 
-{
+<!-- {
   APP_BLOG.isRelatedPostsEnabled ? (
     <BlogHighlightedPosts
       classes={{ container: "pt-0 lg:pt-0 md:pt-0" }}
@@ -25,4 +25,4 @@ const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
       postIds={relatedPosts.map((post) => post.id)}
     />
   ) : null
-}
+} -->
