@@ -46,15 +46,14 @@ const ecosystemData = {
           <div class="ecosystem-item-icon">
             {/* <img src="imgs/mp4/ecosystem1.svg" /> */}
             <video
-              src={item.icon}
               autoplay
               muted
               playsinline
               onmouseover="this.play()"
               onmouseout="this.pause()"
-              onload="this.currentTime = 10000"
-              onloadeddata="this.currentTime = 10000"
-            />
+            >
+              <source src={item.icon} type="video/mp4" />
+            </video>
           </div>
           <div class="ecosystem-item-text">
             <div class="title">{item.title}</div>

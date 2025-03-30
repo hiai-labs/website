@@ -20,15 +20,14 @@ const { featuresData } = Astro.props;
         </div>
         <div class="image">
           <video
-            src={feature.icon}
             playsinline
             autoplay
             muted
-            onload="this.currentTime = 10000"
-            onloadeddata="this.currentTime = 10000"
             onmouseover="this.play()"
             onmouseout="this.pause()"
-          />
+          >
+            <source src={feature.icon} type="video/mp4" />
+          </video>
         </div>
       </div>
     ))
@@ -137,7 +136,7 @@ const { featuresData } = Astro.props;
           margin-left: 0rem;
           video {
             width: 100%;
-            height: auto;
+            height: 100%;
             margin-bottom: 2rem;
           }
         }
