@@ -46,13 +46,15 @@ const ecosystemData = {
           <div class="ecosystem-item-icon">
             {/* <img src="imgs/mp4/ecosystem1.svg" /> */}
             <video
+              src={item.icon}
               autoplay
               muted
-              playsinline
+              playsinline="true"
+              webkit-playsinline="true"
               onmouseover="this.play()"
               onmouseout="this.pause()"
             >
-              <source src={item.icon} type="video/mp4" />
+              <source src={item.icon} type="video/webm" />
             </video>
           </div>
           <div class="ecosystem-item-text">

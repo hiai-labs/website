@@ -8,13 +8,20 @@ const visionData = {
   ],
 };
 ---
+
 <div class="vision-container">
   <div class="title">
-    <video src="/imgs/mp4/vision.webm" autoplay muted playsinline></video>
+    <video
+      src="/imgs/mp4/vision.webm"
+      autoplay
+      muted
+      playsinline="true"
+      webkit-playsinline="true"
+    >
+      <source src="/imgs/mp4/vision.webm" type="video/webm" /></video
+    >
   </div>
-  <div class="vision" id="visionsContent">
-    
-  </div>
+  <div class="vision" id="visionsContent"></div>
   <div class="visions-description">
     {visionData.items.map((item) => <p>{item}</p>)}
   </div>
@@ -107,4 +114,3 @@ const visionData = {
     }
   }
 </style>
-

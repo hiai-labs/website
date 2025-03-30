@@ -20,13 +20,15 @@ const { featuresData } = Astro.props;
         </div>
         <div class="image">
           <video
-            playsinline
+            src={feature.icon}
             autoplay
             muted
+            playsinline="true"
+            webkit-playsinline="true"
             onmouseover="this.play()"
             onmouseout="this.pause()"
           >
-            <source src={feature.icon} type="video/mp4" />
+            <source src={feature.icon} type="video/webm" />
           </video>
         </div>
       </div>
