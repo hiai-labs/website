@@ -49,12 +49,13 @@ const ecosystemData = {
               src={item.icon}
               autoplay
               muted
-              playsinline
+              playsinline="true"
+              webkit-playsinline="true"
               onmouseover="this.play()"
               onmouseout="this.pause()"
-              onload="this.currentTime = 10000"
-              onloadeddata="this.currentTime = 10000"
-            />
+            >
+              <source src={item.icon} type="video/webm" />
+            </video>
           </div>
           <div class="ecosystem-item-text">
             <div class="title">{item.title}</div>
