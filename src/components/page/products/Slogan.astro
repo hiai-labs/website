@@ -8,13 +8,26 @@ const { sloganData } = Astro.props;
   <div class="slogan">{sloganData.content}</div>
 </div>
 
-<script>
+<!-- <script>
   import { TypeWriter } from "~/utils/animate.js";
   const dom = document.getElementById("sloganContent");
   const text = dom?.getAttribute("text-title");
   new TypeWriter({
     dom: dom,
     text: text,
+  });
+</script> -->
+
+<script>
+  // Remove the TypeWriter import and animation logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const dom = document.getElementById("sloganContent");
+    const text = dom?.getAttribute("text-title");
+    
+    // Set the text directly when the page loads
+    if (dom && text) {
+      dom.innerHTML = text;
+    }
   });
 </script>
 
