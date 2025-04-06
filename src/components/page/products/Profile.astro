@@ -18,11 +18,16 @@ const { profileData } = Astro.props;
     <div class="profile-image">
       <img class="web" src={profileData.image}/>
       <video 
+        poster=""
         autoplay
         muted
+        width="100%"
+        height="100%"
+        preload="metadata"
         playsinline="true"
         webkit-playsinline="true"
         class="h5" 
+        poster="/imgs/poster.png"
         src={profileData.imageH5}
       >
       <source src={profileData.imageH5} type="video/webm" />

@@ -23,7 +23,11 @@ const { featuresData } = Astro.props;
             src={feature.icon}
             autoplay
             muted
+            width="100%"
+            height="100%"
+            preload="metadata"
             playsinline="true"
+            poster="/imgs/poster.png"
             webkit-playsinline="true"
             onmouseover="this.play()"
             onmouseout="this.pause()"
