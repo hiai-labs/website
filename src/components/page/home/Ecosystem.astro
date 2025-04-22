@@ -40,11 +40,10 @@ const ecosystemData = {
   </div>
   <div class="ecosystem-list">
     {
-      ecosystemData.items.map((item) => (
+      ecosystemData.items.map((item, index) => (
         <div class="ecosystem-item">
           <div class="ecosystem-item-conner" />
-          <div class="ecosystem-item-icon">
-            {/* <img src="imgs/mp4/ecosystem1.svg" /> */}
+          <div class={`ecosystem-item-icon ${index === 0 ? "first-item" : "regular-item"}`}>
             <video
               src={item.icon}
               autoplay
@@ -75,6 +74,8 @@ const ecosystemData = {
   @use "../style.scss" as *;
 
   $iconSize: 25rem;
+  $videoHeight: 300px; // Increased from 200px
+  $firstItemVideoHeight: 300px;
 
   .ecosystem-container {
     @extend .container;
@@ -150,16 +151,29 @@ const ecosystemData = {
           );
         }
         &-icon {
-          background-color: rgba(255, 255, 255, 0.05);
-          video,
-          img {
+          background-color: transparent;
+          height: $videoHeight; // Now 250px for all non-first items
+          width: 65%; // Increased from 55% for better proportions
+          margin: 0 auto; 
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          border-radius: 0.75rem;
+          
+          &.first-item {
+            width: $iconSize;
+            height: $firstItemVideoHeight;
+          }
+          
+          video, img {
+            height: 100%;
             width: 100%;
-            height: auto;
-            object-fit: fill;
+            object-fit: cover;
           }
         }
         &-text {
-          height: calc(100% - #{$iconSize});
+          width: 100%;
           text-align: left;
           margin-top: 1rem;
           .title {
@@ -186,10 +200,16 @@ const ecosystemData = {
               rgba(0, 117, 255, 0) 50%
             );
           }
-          .ecosystem-item-icon video {
+          .ecosystem-item-icon {
             width: $iconSize;
-            // height: $iconSize;
-            object-fit: fill;
+            height: $firstItemVideoHeight;
+            overflow: hidden;
+            
+            video {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
           }
           .ecosystem-item-text {
             width: calc(100% - #{$iconSize});
@@ -199,9 +219,6 @@ const ecosystemData = {
             text-align: justify;
             padding: 0 1rem;
             height: 80%;
-            margin-top: 0;
-            text-align: justify;
-            padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -210,6 +227,9 @@ const ecosystemData = {
         }
         &:last-child {
           margin-left: 1rem;
+        }
+        &:not(:first-child) {
+          padding-bottom: 3rem; // Added extra padding
         }
       }
     }
@@ -233,20 +253,35 @@ const ecosystemData = {
         flex-direction: column;
         .ecosystem-item {
           width: 100%;
-          .ecosystem-item-icon video {
-            width: 100%;
-            height: 100%;
+          .ecosystem-item-icon {
+            height: $videoHeight;
+            width: 70%; // Increased from 60% for mobile to match desktop changes
+            overflow: hidden;
+            
+            video {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
           }
           &:first-child {
             flex-direction: column;
-            .ecosystem-item-icon video {
-              width: 100%;
-              height: 100%;
-              object-fit: fill;
+            .ecosystem-item-icon {
+              width: 80%; 
+              height: $firstItemVideoHeight; // Keep the first item larger even on mobile
+              overflow: hidden;
+              
+              video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+              }
             }
             .ecosystem-item-text {
               width: 100%;
               margin-right: 0;
+              padding: 1rem;
+              margin-top: 1rem; // Added margin-top for better spacing on mobile
             }
           }
           &:last-child {
