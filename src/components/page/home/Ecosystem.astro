@@ -72,19 +72,24 @@ const ecosystemData = {
 
 <style lang="scss">
   @use "../style.scss" as *;
-
   $iconSize: 25rem;
-  $videoHeight: 300px; // Increased from 200px
+  $videoHeight: 300px;
   $firstItemVideoHeight: 300px;
+
+  // ✅ Add mobile-specific sizing
+  $mobileVideoHeight: 180px;
+  $mobileIconSize: 90%;
 
   .ecosystem-container {
     @extend .container;
     padding: 0 calc((100% - var(--page-width)) / 2);
-    margin: 8rem 0;
+    margin: 10rem 0;
+
     .ecosystem-box {
       width: 100%;
       padding-top: 10rem;
       position: relative;
+
       .text-bg {
         position: absolute;
         bottom: 0;
@@ -103,30 +108,34 @@ const ecosystemData = {
         color: var(--primary-color);
         -webkit-text-stroke: 3px rgba(255, 255, 255, 0);
       }
+
       .text-bottom {
         position: absolute;
         bottom: 0;
         width: 100%;
         text-align: center;
+
         .title {
           @extend .title-style;
           padding: 0;
         }
+
         .content {
           @extend .content-style;
         }
       }
     }
+
     .ecosystem-list {
       width: 100%;
-      margin-top: 3rem;
+      margin-top: 2rem;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
+
       .ecosystem-item {
         width: calc(50% - 0.5rem);
         border-radius: 1.5rem;
-        box-sizing: border-box;
         margin-top: 1rem;
         display: flex;
         flex-direction: column;
@@ -134,9 +143,11 @@ const ecosystemData = {
         padding: 2rem;
         box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.15);
         position: relative;
+
         &:hover {
           box-shadow: inset 0px 4px 20px 0px rgba(255, 255, 255, 0.4);
         }
+
         &-conner {
           position: absolute;
           top: 0;
@@ -150,37 +161,42 @@ const ecosystemData = {
             rgba(0, 117, 255, 0) 50%
           );
         }
+
         &-icon {
           background-color: transparent;
-          height: $videoHeight; // Now 250px for all non-first items
-          width: 65%; // Increased from 55% for better proportions
-          margin: 0 auto; 
+          height: $videoHeight;
+          width: 65%;
+          margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           border-radius: 0.75rem;
-          
+
           &.first-item {
             width: $iconSize;
             height: $firstItemVideoHeight;
           }
-          
-          video, img {
+
+          video,
+          img {
             height: 100%;
             width: 100%;
             object-fit: cover;
           }
         }
+
         &-text {
           width: 100%;
           text-align: left;
           margin-top: 1rem;
+
           .title {
             @extend .title-style;
             font-size: 2rem;
             padding: 0;
           }
+
           .content {
             @extend .content-style;
             text-align: left;
@@ -191,6 +207,7 @@ const ecosystemData = {
           width: 100%;
           flex-direction: row-reverse;
           padding: 1rem;
+
           .ecosystem-item-conner {
             right: auto;
             left: 0;
@@ -200,23 +217,16 @@ const ecosystemData = {
               rgba(0, 117, 255, 0) 50%
             );
           }
+
           .ecosystem-item-icon {
             width: $iconSize;
             height: $firstItemVideoHeight;
-            overflow: hidden;
-            
-            video {
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-            }
           }
+
           .ecosystem-item-text {
             width: calc(100% - #{$iconSize});
-            height: auto;
             margin-right: 2rem;
             margin-top: 0;
-            text-align: justify;
             padding: 0 1rem;
             height: 80%;
             display: flex;
@@ -225,67 +235,79 @@ const ecosystemData = {
             justify-content: flex-start;
           }
         }
+
         &:last-child {
           margin-left: 1rem;
         }
+
         &:not(:first-child) {
-          padding-bottom: 3rem; // Added extra padding
+          padding-bottom: 3rem;
         }
       }
     }
   }
 
+  // ✅ MOBILE FIXES
   @media screen and (max-width: 636px) {
     .ecosystem-container {
-      margin: 10rem 0 6rem 0;
+      margin: 5rem 0 4rem 0;
+
       .ecosystem-box {
         height: 15rem;
+
         .text-bg {
           font-size: 8rem;
           bottom: 6rem;
+
           img {
             width: 100%;
             height: auto;
           }
         }
       }
+
       .ecosystem-list {
         flex-direction: column;
+
         .ecosystem-item {
           width: 100%;
+
           .ecosystem-item-icon {
-            height: $videoHeight;
-            width: 70%; // Increased from 60% for mobile to match desktop changes
-            overflow: hidden;
-            
+            height: $mobileVideoHeight;
+            width: $mobileIconSize;
+
             video {
               height: 100%;
               width: 100%;
               object-fit: cover;
             }
           }
+
           &:first-child {
             flex-direction: column;
+
             .ecosystem-item-icon {
-              width: 80%; 
-              height: $firstItemVideoHeight; // Keep the first item larger even on mobile
-              overflow: hidden;
-              
+              width: $mobileIconSize;
+              height: $mobileVideoHeight;
+
               video {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
               }
             }
+
             .ecosystem-item-text {
               width: 100%;
               margin-right: 0;
               padding: 1rem;
-              margin-top: 1rem; // Added margin-top for better spacing on mobile
+              margin-top: 1rem;
             }
           }
+
           &:last-child {
             margin-left: 0;
+
             .ecosystem-item-conner {
               right: auto;
               left: 0;
